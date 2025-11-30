@@ -1,147 +1,194 @@
 // Dynamic Accessibility Scoring Engine
 
-// Hard-coded 10 properties with sample data
+// Hard-coded 10 diverse properties (parks, hospitals, metro stations, buildings)
 export const properties = [
   {
     id: 1,
-    name: "Property 1",
+    name: "Central Park",
+    type: "park",
     images: ["property1-1", "property1-2", "property1-3"],
     dimensions: {
-      physical: { score: 85, complaints: 2, sensorData: { rampAngle: 5.2, doorWidth: 95 } },
-      digital: { score: 92, dataQuality: 0.95, lastUpdate: new Date("2025-01-15") },
-      mobility: { score: 78, transitDistance: 150, frequency: 12 },
-      emergency: { score: 88, drillsCompleted: 4, equipmentStatus: "operational" },
-      reliability: { score: 90, liftFailures: 0, maintenanceScore: 0.92 },
-      userExperience: { score: 87, avgRating: 4.3, feedbackCount: 45 }
+      physical: { score: 90, complaints: 1, sensorData: { rampAngle: 4.5, doorWidth: 120 } },
+      digital: { score: 75, dataQuality: 0.82, lastUpdate: new Date("2025-01-15") },
+      mobility: { score: 88, transitDistance: 100, frequency: 18 },
+      emergency: { score: 82, drillsCompleted: 3, equipmentStatus: "operational" },
+      reliability: { score: 85, liftFailures: 0, maintenanceScore: 0.88 },
+      userExperience: { score: 92, avgRating: 4.6, feedbackCount: 78 }
     }
   },
   {
     id: 2,
-    name: "Property 2",
+    name: "City General Hospital",
+    type: "hospital",
     images: ["property2-1", "property2-2", "property2-3"],
     dimensions: {
-      physical: { score: 75, complaints: 5, sensorData: { rampAngle: 6.8, doorWidth: 88 } },
-      digital: { score: 85, dataQuality: 0.88, lastUpdate: new Date("2025-01-10") },
-      mobility: { score: 82, transitDistance: 120, frequency: 15 },
-      emergency: { score: 80, drillsCompleted: 3, equipmentStatus: "operational" },
-      reliability: { score: 72, liftFailures: 2, maintenanceScore: 0.78 },
-      userExperience: { score: 76, avgRating: 3.8, feedbackCount: 38 }
+      physical: { score: 95, complaints: 0, sensorData: { rampAngle: 4.2, doorWidth: 110 } },
+      digital: { score: 96, dataQuality: 0.98, lastUpdate: new Date("2025-01-18") },
+      mobility: { score: 90, transitDistance: 80, frequency: 20 },
+      emergency: { score: 98, drillsCompleted: 8, equipmentStatus: "operational" },
+      reliability: { score: 97, liftFailures: 0, maintenanceScore: 0.98 },
+      userExperience: { score: 94, avgRating: 4.7, feedbackCount: 156 }
     }
   },
   {
     id: 3,
-    name: "Property 3",
+    name: "Metro Station Alpha",
+    type: "metro",
     images: ["property3-1", "property3-2", "property3-3"],
     dimensions: {
-      physical: { score: 95, complaints: 0, sensorData: { rampAngle: 4.5, doorWidth: 100 } },
-      digital: { score: 98, dataQuality: 0.98, lastUpdate: new Date("2025-01-18") },
-      mobility: { score: 90, transitDistance: 80, frequency: 20 },
-      emergency: { score: 95, drillsCompleted: 6, equipmentStatus: "operational" },
-      reliability: { score: 96, liftFailures: 0, maintenanceScore: 0.98 },
-      userExperience: { score: 94, avgRating: 4.7, feedbackCount: 67 }
+      physical: { score: 88, complaints: 2, sensorData: { rampAngle: 5.0, doorWidth: 105 } },
+      digital: { score: 92, dataQuality: 0.94, lastUpdate: new Date("2025-01-17") },
+      mobility: { score: 98, transitDistance: 0, frequency: 45 },
+      emergency: { score: 90, drillsCompleted: 6, equipmentStatus: "operational" },
+      reliability: { score: 92, liftFailures: 0, maintenanceScore: 0.93 },
+      userExperience: { score: 89, avgRating: 4.4, feedbackCount: 234 }
     }
   },
   {
     id: 4,
-    name: "Property 4",
+    name: "Tech Tower Office Building",
+    type: "building",
     images: ["property4-1", "property4-2", "property4-3"],
     dimensions: {
-      physical: { score: 68, complaints: 8, sensorData: { rampAngle: 7.5, doorWidth: 85 } },
-      digital: { score: 70, dataQuality: 0.75, lastUpdate: new Date("2024-12-20") },
-      mobility: { score: 65, transitDistance: 200, frequency: 8 },
-      emergency: { score: 72, drillsCompleted: 2, equipmentStatus: "needs-repair" },
-      reliability: { score: 65, liftFailures: 4, maintenanceScore: 0.68 },
-      userExperience: { score: 70, avgRating: 3.5, feedbackCount: 28 }
+      physical: { score: 85, complaints: 2, sensorData: { rampAngle: 5.2, doorWidth: 95 } },
+      digital: { score: 94, dataQuality: 0.96, lastUpdate: new Date("2025-01-16") },
+      mobility: { score: 80, transitDistance: 150, frequency: 14 },
+      emergency: { score: 88, drillsCompleted: 5, equipmentStatus: "operational" },
+      reliability: { score: 90, liftFailures: 0, maintenanceScore: 0.92 },
+      userExperience: { score: 87, avgRating: 4.3, feedbackCount: 92 }
     }
   },
   {
     id: 5,
-    name: "Property 5",
+    name: "Riverside Park",
+    type: "park",
     images: ["property5-1", "property5-2", "property5-3"],
     dimensions: {
-      physical: { score: 88, complaints: 1, sensorData: { rampAngle: 5.0, doorWidth: 96 } },
-      digital: { score: 90, dataQuality: 0.92, lastUpdate: new Date("2025-01-16") },
-      mobility: { score: 85, transitDistance: 100, frequency: 18 },
-      emergency: { score: 86, drillsCompleted: 5, equipmentStatus: "operational" },
-      reliability: { score: 91, liftFailures: 0, maintenanceScore: 0.90 },
-      userExperience: { score: 89, avgRating: 4.4, feedbackCount: 52 }
+      physical: { score: 78, complaints: 4, sensorData: { rampAngle: 6.5, doorWidth: 115 } },
+      digital: { score: 68, dataQuality: 0.75, lastUpdate: new Date("2025-01-08") },
+      mobility: { score: 75, transitDistance: 180, frequency: 12 },
+      emergency: { score: 70, drillsCompleted: 2, equipmentStatus: "operational" },
+      reliability: { score: 72, liftFailures: 0, maintenanceScore: 0.78 },
+      userExperience: { score: 82, avgRating: 4.1, feedbackCount: 54 }
     }
   },
   {
     id: 6,
-    name: "Property 6",
+    name: "Memorial Medical Center",
+    type: "hospital",
     images: ["property6-1", "property6-2", "property6-3"],
     dimensions: {
-      physical: { score: 80, complaints: 3, sensorData: { rampAngle: 6.0, doorWidth: 92 } },
-      digital: { score: 82, dataQuality: 0.85, lastUpdate: new Date("2025-01-12") },
-      mobility: { score: 78, transitDistance: 140, frequency: 14 },
-      emergency: { score: 83, drillsCompleted: 4, equipmentStatus: "operational" },
-      reliability: { score: 84, liftFailures: 1, maintenanceScore: 0.85 },
-      userExperience: { score: 81, avgRating: 4.0, feedbackCount: 41 }
+      physical: { score: 92, complaints: 1, sensorData: { rampAngle: 4.5, doorWidth: 108 } },
+      digital: { score: 93, dataQuality: 0.95, lastUpdate: new Date("2025-01-16") },
+      mobility: { score: 85, transitDistance: 120, frequency: 16 },
+      emergency: { score: 96, drillsCompleted: 7, equipmentStatus: "operational" },
+      reliability: { score: 94, liftFailures: 0, maintenanceScore: 0.95 },
+      userExperience: { score: 91, avgRating: 4.5, feedbackCount: 128 }
     }
   },
   {
     id: 7,
-    name: "Property 7",
+    name: "Metro Station Beta",
+    type: "metro",
     images: ["property7-1", "property7-2", "property7-3"],
     dimensions: {
-      physical: { score: 72, complaints: 6, sensorData: { rampAngle: 7.0, doorWidth: 87 } },
-      digital: { score: 75, dataQuality: 0.80, lastUpdate: new Date("2025-01-05") },
-      mobility: { score: 70, transitDistance: 180, frequency: 10 },
-      emergency: { score: 74, drillsCompleted: 3, equipmentStatus: "operational" },
-      reliability: { score: 70, liftFailures: 3, maintenanceScore: 0.72 },
-      userExperience: { score: 73, avgRating: 3.6, feedbackCount: 32 }
+      physical: { score: 72, complaints: 6, sensorData: { rampAngle: 7.0, doorWidth: 92 } },
+      digital: { score: 78, dataQuality: 0.82, lastUpdate: new Date("2025-01-10") },
+      mobility: { score: 95, transitDistance: 0, frequency: 40 },
+      emergency: { score: 75, drillsCompleted: 3, equipmentStatus: "needs-repair" },
+      reliability: { score: 68, liftFailures: 3, maintenanceScore: 0.72 },
+      userExperience: { score: 74, avgRating: 3.7, feedbackCount: 187 }
     }
   },
   {
     id: 8,
-    name: "Property 8",
+    name: "Grand Plaza Mall",
+    type: "building",
     images: ["property8-1", "property8-2", "property8-3"],
     dimensions: {
-      physical: { score: 92, complaints: 1, sensorData: { rampAngle: 4.8, doorWidth: 98 } },
-      digital: { score: 94, dataQuality: 0.96, lastUpdate: new Date("2025-01-17") },
-      mobility: { score: 88, transitDistance: 90, frequency: 19 },
-      emergency: { score: 90, drillsCompleted: 5, equipmentStatus: "operational" },
-      reliability: { score: 93, liftFailures: 0, maintenanceScore: 0.94 },
-      userExperience: { score: 91, avgRating: 4.5, feedbackCount: 58 }
+      physical: { score: 88, complaints: 2, sensorData: { rampAngle: 5.0, doorWidth: 100 } },
+      digital: { score: 90, dataQuality: 0.92, lastUpdate: new Date("2025-01-15") },
+      mobility: { score: 82, transitDistance: 140, frequency: 15 },
+      emergency: { score: 86, drillsCompleted: 4, equipmentStatus: "operational" },
+      reliability: { score: 89, liftFailures: 1, maintenanceScore: 0.90 },
+      userExperience: { score: 90, avgRating: 4.5, feedbackCount: 215 }
     }
   },
   {
     id: 9,
-    name: "Property 9",
+    name: "Old Town Square",
+    type: "park",
     images: ["property9-1", "property9-2", "property9-3"],
     dimensions: {
-      physical: { score: 65, complaints: 10, sensorData: { rampAngle: 8.0, doorWidth: 82 } },
-      digital: { score: 68, dataQuality: 0.72, lastUpdate: new Date("2024-12-15") },
-      mobility: { score: 62, transitDistance: 220, frequency: 7 },
-      emergency: { score: 70, drillsCompleted: 2, equipmentStatus: "needs-repair" },
-      reliability: { score: 60, liftFailures: 5, maintenanceScore: 0.65 },
-      userExperience: { score: 67, avgRating: 3.3, feedbackCount: 25 }
+      physical: { score: 65, complaints: 8, sensorData: { rampAngle: 7.8, doorWidth: 95 } },
+      digital: { score: 62, dataQuality: 0.68, lastUpdate: new Date("2024-12-20") },
+      mobility: { score: 70, transitDistance: 200, frequency: 10 },
+      emergency: { score: 68, drillsCompleted: 2, equipmentStatus: "needs-repair" },
+      reliability: { score: 64, liftFailures: 0, maintenanceScore: 0.70 },
+      userExperience: { score: 72, avgRating: 3.6, feedbackCount: 43 }
     }
   },
   {
     id: 10,
-    name: "Property 10",
+    name: "Business Hub Tower",
+    type: "building",
     images: ["property10-1", "property10-2", "property10-3"],
     dimensions: {
-      physical: { score: 83, complaints: 2, sensorData: { rampAngle: 5.5, doorWidth: 94 } },
-      digital: { score: 86, dataQuality: 0.89, lastUpdate: new Date("2025-01-14") },
-      mobility: { score: 80, transitDistance: 130, frequency: 16 },
-      emergency: { score: 85, drillsCompleted: 4, equipmentStatus: "operational" },
-      reliability: { score: 87, liftFailures: 1, maintenanceScore: 0.88 },
-      userExperience: { score: 84, avgRating: 4.2, feedbackCount: 48 }
+      physical: { score: 90, complaints: 1, sensorData: { rampAngle: 4.8, doorWidth: 98 } },
+      digital: { score: 95, dataQuality: 0.97, lastUpdate: new Date("2025-01-17") },
+      mobility: { score: 85, transitDistance: 110, frequency: 17 },
+      emergency: { score: 92, drillsCompleted: 6, equipmentStatus: "operational" },
+      reliability: { score: 93, liftFailures: 0, maintenanceScore: 0.94 },
+      userExperience: { score: 88, avgRating: 4.4, feedbackCount: 104 }
     }
   }
 ];
 
-// Base weights for the 6 dimensions
-const baseWeights = {
-  physical: 0.20,
-  digital: 0.15,
-  mobility: 0.15,
-  emergency: 0.20,
-  reliability: 0.20,
-  userExperience: 0.10
+// Base weights for the 6 dimensions (adjusted by property type)
+const getBaseWeights = (propertyType) => {
+  switch (propertyType) {
+    case "hospital":
+      // Hospitals prioritize emergency preparedness and reliability
+      return {
+        physical: 0.20,
+        digital: 0.12,
+        mobility: 0.10,
+        emergency: 0.28,
+        reliability: 0.22,
+        userExperience: 0.08
+      };
+    case "metro":
+      // Metro stations prioritize mobility and reliability
+      return {
+        physical: 0.18,
+        digital: 0.15,
+        mobility: 0.30,
+        emergency: 0.18,
+        reliability: 0.12,
+        userExperience: 0.07
+      };
+    case "park":
+      // Parks prioritize physical accessibility and user experience
+      return {
+        physical: 0.28,
+        digital: 0.08,
+        mobility: 0.18,
+        emergency: 0.15,
+        reliability: 0.15,
+        userExperience: 0.16
+      };
+    case "building":
+    default:
+      // Buildings have balanced weights
+      return {
+        physical: 0.20,
+        digital: 0.15,
+        mobility: 0.15,
+        emergency: 0.20,
+        reliability: 0.20,
+        userExperience: 0.10
+      };
+  }
 };
 
 // Calculate time decay for complaints
@@ -184,6 +231,7 @@ const calculateDimensionScore = (dimension, dimensionData) => {
 // Calculate overall score and badge
 export const calculateScore = (property) => {
   const dimensions = property.dimensions;
+  const propertyType = property.type || "building";
   
   // Calculate adjusted dimension scores
   const adjustedScores = {
@@ -195,11 +243,31 @@ export const calculateScore = (property) => {
     userExperience: calculateDimensionScore("userExperience", dimensions.userExperience)
   };
   
+  // Get base weights according to property type
+  let weights = getBaseWeights(propertyType);
+  
   // Apply adaptive weights (boost reliability if lift failures)
-  let weights = { ...baseWeights };
   if (dimensions.reliability.liftFailures > 2) {
-    weights.reliability = 0.30;
-    weights.physical = 0.15;
+    const reliabilityBoost = 0.10;
+    weights.reliability = Math.min(weights.reliability + reliabilityBoost, 0.35);
+    // Reduce other weights proportionally
+    const reductionFactor = (1 - weights.reliability) / (1 - weights.reliability + reliabilityBoost);
+    Object.keys(weights).forEach(key => {
+      if (key !== "reliability") {
+        weights[key] *= reductionFactor;
+      }
+    });
+  }
+  
+  // Type-specific adjustments
+  if (propertyType === "hospital" && dimensions.emergency.equipmentStatus === "needs-repair") {
+    // Extra penalty for hospitals with faulty emergency equipment
+    adjustedScores.emergency -= 5;
+  }
+  
+  if (propertyType === "metro" && dimensions.reliability.liftFailures > 1) {
+    // Metro stations heavily penalized for lift failures (accessibility critical)
+    adjustedScores.reliability -= 10;
   }
   
   // Calculate weighted overall score
