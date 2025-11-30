@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -17,6 +17,15 @@ interface PropertyCardProps {
 
 const PropertyCard = ({ property, overall, badge, onView }: PropertyCardProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Auto-scroll every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % property.images.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [property.images.length]);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % property.images.length);
