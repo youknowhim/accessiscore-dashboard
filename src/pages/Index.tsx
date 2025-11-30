@@ -3,28 +3,48 @@ import { getAllProperties } from "@/utils/engine";
 import PropertyCard from "@/components/PropertyCard";
 import DetailsModal from "@/components/DetailsModal";
 import SearchBox from "@/components/SearchBox";
-import property1Img from "@/assets/property1-1.jpg";
-import property2Img from "@/assets/property2-1.jpg";
-import property3Img from "@/assets/property3-1.jpg";
-import property4Img from "@/assets/property4-1.jpg";
-import property5Img from "@/assets/property5-1.jpg";
-import property6Img from "@/assets/property6-1.jpg";
-import property7Img from "@/assets/property7-1.jpg";
-import property8Img from "@/assets/property8-1.jpg";
-import property9Img from "@/assets/property9-1.jpg";
-import property10Img from "@/assets/property10-1.jpg";
+import property1Img1 from "@/assets/property1-1.jpg";
+import property1Img2 from "@/assets/property1-2.jpg";
+import property1Img3 from "@/assets/property1-3.jpg";
+import property2Img1 from "@/assets/property2-1.jpg";
+import property2Img2 from "@/assets/property2-2.jpg";
+import property2Img3 from "@/assets/property2-3.jpg";
+import property3Img1 from "@/assets/property3-1.jpg";
+import property3Img2 from "@/assets/property3-2.jpg";
+import property3Img3 from "@/assets/property3-3.jpg";
+import property4Img1 from "@/assets/property4-1.jpg";
+import property4Img2 from "@/assets/property4-2.jpg";
+import property4Img3 from "@/assets/property4-3.jpg";
+import property5Img1 from "@/assets/property5-1.jpg";
+import property5Img2 from "@/assets/property5-2.jpg";
+import property5Img3 from "@/assets/property5-3.jpg";
+import property6Img1 from "@/assets/property6-1.jpg";
+import property6Img2 from "@/assets/property6-2.jpg";
+import property6Img3 from "@/assets/property6-3.jpg";
+import property7Img1 from "@/assets/property7-1.jpg";
+import property7Img2 from "@/assets/property7-2.jpg";
+import property7Img3 from "@/assets/property7-3.jpg";
+import property8Img1 from "@/assets/property8-1.jpg";
+import property8Img2 from "@/assets/property8-2.jpg";
+import property8Img3 from "@/assets/property8-3.jpg";
+import property9Img1 from "@/assets/property9-1.jpg";
+import property9Img2 from "@/assets/property9-2.jpg";
+import property9Img3 from "@/assets/property9-3.jpg";
+import property10Img1 from "@/assets/property10-1.jpg";
+import property10Img2 from "@/assets/property10-2.jpg";
+import property10Img3 from "@/assets/property10-3.jpg";
 
 const propertyImages: Record<number, string[]> = {
-  1: [property1Img, property1Img, property1Img],
-  2: [property2Img, property2Img, property2Img],
-  3: [property3Img, property3Img, property3Img],
-  4: [property4Img, property4Img, property4Img],
-  5: [property5Img, property5Img, property5Img],
-  6: [property6Img, property6Img, property6Img],
-  7: [property7Img, property7Img, property7Img],
-  8: [property8Img, property8Img, property8Img],
-  9: [property9Img, property9Img, property9Img],
-  10: [property10Img, property10Img, property10Img],
+  1: [property1Img1, property1Img2, property1Img3],
+  2: [property2Img1, property2Img2, property2Img3],
+  3: [property3Img1, property3Img2, property3Img3],
+  4: [property4Img1, property4Img2, property4Img3],
+  5: [property5Img1, property5Img2, property5Img3],
+  6: [property6Img1, property6Img2, property6Img3],
+  7: [property7Img1, property7Img2, property7Img3],
+  8: [property8Img1, property8Img2, property8Img3],
+  9: [property9Img1, property9Img2, property9Img3],
+  10: [property10Img1, property10Img2, property10Img3],
 };
 
 const Index = () => {
